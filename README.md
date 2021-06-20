@@ -54,7 +54,6 @@ Bonus points if you're able to:
 
 - You will need to perform a variety of SQL JOINS to complete this assignment, and it's recommended you review the week's activities if you need a refresher on this.
 
-![Employee Tracker](Assets/employee-tracker.gif)
 
 - Check out [SQL Bolt](https://sqlbolt.com/) for some extra MySQL help.
 
