@@ -2,6 +2,8 @@ const mysql = require('mysql');
 const inquirer = require('inquirer');
 const cTable = require('console.table');
 
+console.table([])
+
 const connection = mysql.createConnection({
   host: 'localhost',
   // Your port; if not 3306
@@ -20,6 +22,13 @@ const start = () => {
       type: 'list',
       message: 'What would you like to do?',
       choices: ['View All Employees', 'View All Employees by Department', 'View All Employees by Manager', 'Add Employee', 'Remove Employee', 'Update Employee Role', 'Update Employee Manager'],
+
+    }, {
+      name: 'View All Employees',
+      type: 'list',
+      message: 'What would you like to do?',
+      choices: ['View All Employees', 'View All Employees by Department', 'View All Employees by Manager', 'Add Employee', 'Remove Employee', 'Update Employee Role', 'Update Employee Manager'],
+
     })
 
     .then((answer) => {
@@ -40,3 +49,5 @@ connection.connect((err) => {
   // run the start function after the connection is made to prompt the user
   start();
 });
+
+console.table(me);
