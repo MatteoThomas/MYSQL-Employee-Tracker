@@ -1,7 +1,7 @@
 const mysql = require('mysql');
 const inquirer = require('inquirer');
 const cTable = require('console.table');
-
+const db = require('./db')
 console.table([])
 
 const connection = mysql.createConnection({
@@ -11,7 +11,7 @@ const connection = mysql.createConnection({
   // Your username
   user: 'root',
   // Be sure to update with your own MySQL password!
-  password: 'mysql_native_password',
+  password: '77!IHATEMYSQL!77',
   database: 'track_DB',
 });
 
@@ -49,5 +49,3 @@ connection.connect((err) => {
   // run the start function after the connection is made to prompt the user
   start();
 });
-
-console.table(me);
