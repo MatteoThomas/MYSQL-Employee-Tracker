@@ -4,7 +4,7 @@ const mysql = require("mysql");
 const connection = mysql.createConnection({
     host: "localhost",
     user: "root",
-    password: "mysql_native_password",
+    password: "77!IHATEMYSQL!77",
     database: "track_DB"
 });
 connection.connect();

@@ -19,20 +19,19 @@ class DB {
   }
 
   addEmp(employee) {
-    return this.connection.query('INSERT INTO employee SET ?', employee)
+    return this.connection.query("INSERT INTO employee SET ?", employee)
   }
 
-  addrole(roles) {
+  addRole(roles) {
     return this.connection.query('INSERT INTO roles SET ?', roles)
   }
 
   addDept(department) {
-    return this.connection.query('INSERT INTO department SET ?', department)
+    return this.connection.query("INSERT INTO department SET ?", department)
   }
 
-  updateRole(role) {
-    console.log(role);
-    return this.connection.query('UPDATE INTO employee SET ?', role)
+  updateRole(roles) {
+    return this.connection.query("UPDATE INTO employee SET ?", roles)
   }
 
 }

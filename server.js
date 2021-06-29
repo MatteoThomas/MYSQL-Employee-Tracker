@@ -28,7 +28,7 @@ const start = async () => {
             addEmp();
             break;
         case 'Add role':
-            addrole();
+            addRole();
             break;
         case 'Add department':
             addDept();
@@ -76,9 +76,8 @@ const viewAllDept = async () => {
 };
 
 const addEmp = async () => {
-    const role = await db.viewAllroles();
+    const roles = await db.viewAllroles();
     const employees = await db.viewAllEmp();
-
     const employee = await prompt([{
             name: 'first_name',
             message: "What is the new employee's first name?",
@@ -89,7 +88,7 @@ const addEmp = async () => {
         },
     ]);
 
-    const roleChoices = role.map(({
+    const roleChoices = roles.map(({
         id,
         title
     }) => ({
@@ -106,7 +105,7 @@ const addEmp = async () => {
         choices: roleChoices,
     });
 
-    employee.role_id = roleId
+    employee.roles_id = roleId
 
     const managerChoices = employees.map(({
         id,
@@ -134,12 +133,12 @@ const addEmp = async () => {
     employee.manager_id = managerId;
 
     await db.addEmp(employee);
-    console.log(`added ${employee.first_name} ${employee.last_name} as new employee`);
+    console.log("added ${employee.first_name} ${employee.last_name} as new employee");
 
     start();
 };
 
-const addrole = async () => {
+const addRole = async () => {
     const role = await prompt([{
             name: 'title',
             message: "What is the title of the new role?",
@@ -154,7 +153,7 @@ const addrole = async () => {
         },
     ]);
 
-    await db.addrole(role);
+    await db.addRole(role);
     console.log(`added ${role.name} as new role`);
 
     start();
@@ -171,9 +170,6 @@ const addDept = async () => {
 
     start();
 }
-
-
-
 
 const updateRole = async () => {
     
@@ -195,7 +191,8 @@ const updateRole = async () => {
         name: first_name + last_name,
         value: id,
     }));
-    const department = await prompt([{
+
+    const roles = await prompt([{
         type: "list",
         name: 'update',
         message: "Update which employee?",
@@ -211,25 +208,14 @@ const updateRole = async () => {
 
     
     await db.updateRole(role);
-    console.log(`added ${department.name} as new department`);
+    console.log(`added ${roles.name} as new role`);
 
     start();
 }
 
-// const updateRole = async () => {
-//     try {
-//         const role = await db.updateRole();
-//         console.log('\n');
-//         console.table(role);
-//         start();
-//     } catch (err) {
-//         console.log(err)
-//     }
-// };
-
 
 const quit = () => {
-    console.log('Ok BYE!')
+    console.log("Program Terminated")
     process.exit();
 }
 
