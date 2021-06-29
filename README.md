@@ -9,7 +9,9 @@ This app allows employers to view, add, and update employees, departments, and r
 [Video](https://drive.google.com/file/d/1jGfYHx5l8TI5WrzwcFq0fc11xcTDHeec/view)
 
 ## Contributer
- Matthew Elliott, Github: [MatteoThomas](https://github.com/MatteoThomas)
+ Matthew Elliott
+ 
+ Github: [MatteoThomas](https://github.com/MatteoThomas)
 
 ## Technologies
 NodeJS
