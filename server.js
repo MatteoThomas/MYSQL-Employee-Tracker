@@ -34,8 +34,9 @@ const start = async () => {
             addDept();
             break;
         case 'Update employee role':
-            updateEmp();
+            updateRole();
             break;
+            
         default:
             return quit();
     };
@@ -147,6 +148,10 @@ const addrole = async () => {
             name: 'salary',
             message: "What is the salary of the new role?",
         },
+        {
+            name: 'department_id',
+            message: "What is the department ID of the new role?",
+        },
     ]);
 
     await db.addrole(role);
@@ -167,6 +172,60 @@ const addDept = async () => {
     start();
 }
 
+
+
+
+const updateRole = async () => {
+    
+    const role = await db.viewAllroles();
+    const roleChoices = role.map(({
+        id,
+        title
+    }) => ({
+        name: title,
+        value: id,
+    }));
+
+    const employees = await db.viewAllEmp();
+    const employeeChoices = employees.map(({
+        id,
+        first_name,
+        last_name
+    }) => ({
+        name: first_name + last_name,
+        value: id,
+    }));
+    const department = await prompt([{
+        type: "list",
+        name: 'update',
+        message: "Update which employee?",
+        choices: employeeChoices
+    }
+,
+{
+    type:'list',
+    name: 'roles',
+    message: 'Chose a role',
+    choices: roleChoices
+}]);
+
+    
+    await db.updateRole(role);
+    console.log(`added ${department.name} as new department`);
+
+    start();
+}
+
+// const updateRole = async () => {
+//     try {
+//         const role = await db.updateRole();
+//         console.log('\n');
+//         console.table(role);
+//         start();
+//     } catch (err) {
+//         console.log(err)
+//     }
+// };
 
 
 const quit = () => {

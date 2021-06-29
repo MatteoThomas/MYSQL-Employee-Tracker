@@ -30,6 +30,11 @@ class DB {
     return this.connection.query('INSERT INTO department SET ?', department)
   }
 
+  updateRole(role) {
+    console.log(role);
+    return this.connection.query('UPDATE INTO employee SET ?', role)
+  }
+
 }
 
 module.exports = new DB(connection);
