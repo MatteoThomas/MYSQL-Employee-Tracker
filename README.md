@@ -5,6 +5,7 @@ This app allows employers to view, add, and update employees, departments, and r
 
 ## Links
 [Repo](https://github.com/MatteoThomas/MYSQL-Employee-Tracker)
+
 [Video](https://drive.google.com/file/d/1jGfYHx5l8TI5WrzwcFq0fc11xcTDHeec/view)
 
 ## Contributer
