@@ -16,4 +16,4 @@ Inquirer
 MySQL
 
 ## Preview
-!(/public/assets/IMG/mysqlPreview.png)
+![Screenshot](mysqlPreview.png)
